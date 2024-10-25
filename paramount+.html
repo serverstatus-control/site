@@ -6,9 +6,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ROBLOX SERVER</title>
+        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script> <!-- Firebase App (compat) -->
+        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script> <!-- Firebase Realtime Database (compat) -->
     </head>
-   
-    <body>     
+    <body>
         <label for="miaTendina">SCEGLI LO STATO:</label>
         <select id="miaTendina" disabled>
             <option value="STATO NON INDICATO">STATO NON INDICATO</option>
@@ -23,12 +24,10 @@
             <option value="SERVER TUTTI IN DOWN">TUTTI I SERVER SONO IN DOWN</option>
             <option value="SERVER DISTRUTTI">SERVER DISTRUTTI</option>
         </select>
-
         <br>
         <label for="passwordInput">Inserisci la password:</label>
-        <input type="password" id="passwordInput" placeholder="Password">
-        <button onclick="unlockDropdown()">Sblocca</button>
-
+        <input type="password" id="passwordInput">
+        <button id="unlockButton">Sblocca</button>
         <p id="testo"></p>
         <br>
         <a href="index.html">TORNA INDIETRO</a>

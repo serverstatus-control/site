@@ -1,10 +1,59 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const pageIdentifier = window.location.pathname; // Identificatore unico basato sull'URL
-    const storageKey = 'selectedState_' + pageIdentifier;
+    const firebaseConfig = {
+        apiKey: "API_KEY_HERE",
+        authDomain: "serverstatus-48c33.firebaseapp.com",
+        databaseURL: "https://serverstatus-48c33-default-rtdb.firebaseio.com/",
+        projectId: "serverstatus-48c33",
+        storageBucket: "serverstatus-48c33.appspot.com",
+        messagingSenderId: "823350088028",
+        appId: "1:823350088028:web:082c3b78687372a3fdf199"
+    };
 
-    // Funzione per aggiornare la classe del testo in base allo stato selezionato
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    const unlockButton = document.getElementById('unlockButton');
+    const tendina = document.getElementById('miaTendina');
+    const testo = document.getElementById("testo");
+
+    const sanitizedPath = window.location.pathname.replace(/[.#$[\]]/g, "_");
+
+    firebase.database().ref(`selectedState_${sanitizedPath}`).on('value', (snapshot) => {
+        const savedState = snapshot.val();
+        if (savedState) {
+            tendina.value = savedState;
+            testo.innerHTML = tendina.options[tendina.selectedIndex].text;
+            aggiornaClasse(testo, savedState);
+        }
+    });
+
+    unlockButton.addEventListener('click', function() {
+        const passwordInput = document.getElementById('passwordInput');
+        const password = passwordInput.value.trim();
+        const correctPassword = '9924';
+
+        if (password === correctPassword) {
+            tendina.disabled = false; // Sblocca la tendina
+            alert('Accesso consentito!');
+        } else {
+            alert('Password errata. Riprova.');
+        }
+
+        passwordInput.value = '';
+    });
+
+    tendina.addEventListener('change', function() {
+        const selectedValue = tendina.value;
+        testo.innerHTML = tendina.options[tendina.selectedIndex].text;
+        aggiornaClasse(testo, selectedValue);
+
+        firebase.database().ref(`selectedState_${sanitizedPath}`).set(selectedValue)
+            .then(() => console.log('Valore salvato con successo'))
+            .catch((error) => console.error('Errore nel salvataggio:', error));
+    });
+
     function aggiornaClasse(testo, selectedValue) {
-        testo.className = ''; // Rimuove tutte le classi esistenti
+        testo.className = '';
         switch (selectedValue) {
             case 'STATO NON INDICATO':
                 testo.classList.add('statoNonIndicato');
@@ -41,51 +90,4 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
     }
-
-    // Funzione che cambia il testo e salva lo stato selezionato nel localStorage
-    function cambiaTesto() {
-        const tendina = document.getElementById("miaTendina");
-        const testo = document.getElementById("testo");
-        const selectedValue = tendina.value;
-
-        // Salva la selezione nel localStorage con una chiave unica
-        localStorage.setItem(storageKey, selectedValue);
-
-        // Aggiorna il testo e la classe
-        testo.innerHTML = tendina.options[tendina.selectedIndex].text;
-        aggiornaClasse(testo, selectedValue);
-    }
-
-    // Carica lo stato salvato al caricamento della pagina
-    const savedState = localStorage.getItem(storageKey);
-    if (savedState) {
-        const tendina = document.getElementById("miaTendina");
-        const testo = document.getElementById("testo");
-
-        // Imposta la selezione salvata
-        tendina.value = savedState;
-        testo.innerHTML = tendina.options[tendina.selectedIndex].text;
-        aggiornaClasse(testo, savedState);
-    }
-
-    // Funzione per sbloccare la tendina con una password
-    window.unlockDropdown = function() {
-        const passwordInput = document.getElementById('passwordInput');
-        const password = passwordInput.value.trim();
-        const correctPassword = '9924'; // Sostituisci con la tua password esatta
-
-        const tendina = document.getElementById('miaTendina');
-        if (password === correctPassword) {
-            tendina.disabled = false; // Sblocca la tendina
-            alert('Accesso consentito!');
-        } else {
-            alert('Password errata. Riprova.');
-        }
-
-        // Cancella la password nel campo di input dopo l'invio
-        passwordInput.value = '';
-    }
-
-    // Aggiungi l'evento onchange alla tendina per cambiare il testo dinamicamente
-    document.getElementById("miaTendina").addEventListener('change', cambiaTesto);
 });
