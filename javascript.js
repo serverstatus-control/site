@@ -1,17 +1,3 @@
-// Configurazione Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDFE688w76tP-UchMERWCWaC5AFj-1N-iw",
-  authDomain: "serverstatus-48c33.firebaseapp.com",
-  projectId: "serverstatus-48c33",
-  storageBucket: "serverstatus-48c33.appspot.com",
-  messagingSenderId: "823350088028",
-  appId: "1:823350088028:web:082c3b78687372a3fdf199"
-};
-
-// Inizializza Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
 document.addEventListener('DOMContentLoaded', function() {
     const pageIdentifier = window.location.pathname; // Identificatore unico basato sull'URL
     const storageKey = 'selectedState_' + pageIdentifier;
@@ -56,33 +42,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Funzione che cambia il testo e salva lo stato selezionato su Firebase
+    // Funzione che cambia il testo e salva lo stato selezionato nel localStorage
     function cambiaTesto() {
         const tendina = document.getElementById("miaTendina");
         const testo = document.getElementById("testo");
         const selectedValue = tendina.value;
 
-        // Salva la selezione su Firebase
-        database.ref(storageKey).set(selectedValue);
+        // Salva la selezione nel localStorage con una chiave unica
+        localStorage.setItem(storageKey, selectedValue);
 
         // Aggiorna il testo e la classe
         testo.innerHTML = tendina.options[tendina.selectedIndex].text;
         aggiornaClasse(testo, selectedValue);
     }
 
-    // Carica lo stato salvato al caricamento della pagina da Firebase
-    database.ref(storageKey).on('value', function(snapshot) {
-        const savedState = snapshot.val();
-        if (savedState) {
-            const tendina = document.getElementById("miaTendina");
-            const testo = document.getElementById("testo");
+    // Carica lo stato salvato al caricamento della pagina
+    const savedState = localStorage.getItem(storageKey);
+    if (savedState) {
+        const tendina = document.getElementById("miaTendina");
+        const testo = document.getElementById("testo");
 
-            // Imposta la selezione salvata
-            tendina.value = savedState;
-            testo.innerHTML = tendina.options[tendina.selectedIndex].text;
-            aggiornaClasse(testo, savedState);
-        }
-    });
+        // Imposta la selezione salvata
+        tendina.value = savedState;
+        testo.innerHTML = tendina.options[tendina.selectedIndex].text;
+        aggiornaClasse(testo, savedState);
+    }
 
     // Funzione per sbloccare la tendina con una password
     window.unlockDropdown = function() {
@@ -102,6 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordInput.value = '';
     }
 
-    // Aggiungi l'evento onchange alla tendina per cambiare il testo dinamicamente e salvare su Firebase
+    // Aggiungi l'evento onchange alla tendina per cambiare il testo dinamicamente
     document.getElementById("miaTendina").addEventListener('change', cambiaTesto);
 });
