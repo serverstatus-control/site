@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const pageIdentifier = window.location.pathname; // Identificatore unico basato sull'URL
     const storageKey = 'selectedState_' + pageIdentifier;
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Carica lo stato salvato al caricamento della pagina da Firebase
-    database.ref(storageKey).on('value', function (snapshot) {
+    database.ref(storageKey).on('value', function(snapshot) {
         const savedState = snapshot.val();
         if (savedState) {
             const tendina = document.getElementById("miaTendina");
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Funzione per sbloccare la tendina con una password
-    window.unlockDropdown = function () {
+    window.unlockDropdown = function() {
         const passwordInput = document.getElementById('passwordInput');
         const password = passwordInput.value.trim();
         const correctPassword = '9924'; // Sostituisci con la tua password esatta
