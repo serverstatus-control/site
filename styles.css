@@ -1,0 +1,239 @@
+#bodyindex a:link      {color: white}
+#bodyindex a:visited   {color: white;}
+#bodyindex a:hover     {background-color: green;}
+a:hover {background-color:#ffae00;}
+
+a {font-size: 20px;}
+
+h1 {
+  font-family: "Audiowide", sans-serif;
+  font-size: 55px;
+  text-align: center;
+}
+h3 {
+  font-size: 35px;
+}
+
+h4 {
+  text-align: left;
+  position: fixed;
+  bottom: -25px;
+  left: 5px;
+}
+
+#bodyinfo {
+  background-image: url(https://img.freepik.com/free-vector/realistic-news-studio-background_23-2149982947.jpg);
+  background-size: cover; 
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#paginainfo {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+}
+
+.statoNonIndicato {
+  position: fixed; 
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 60px;
+  font-weight: bold;
+  color: #8e8e8ecb;
+}
+  
+.serverChiusi {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #9c4900cb;
+}
+.serverBassaAffluenza {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #0020f3f3;
+}
+.serverAltaAffluenza {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffae00;
+}
+.serverOperativi {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #01fc0acb;
+}
+.serverProblemi {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #fcef01;
+}
+.serverProblemiGravi {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #fc7a01;
+}
+.serverDownParziale {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #fc7a01;
+}
+.serverDown {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #fc0101;
+}
+.serverTuttiDown {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #c00d0d;
+}
+.serverDistrutti {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #000000;
+}
+
+#oizzo, #mailcontatti {
+  color: white;
+  font-size: 70px;
+  text-decoration-color: purple;
+}
+
+#informazioninfo {
+  color: white;
+}
+
+#creazionesito {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 110px;
+}
+
+#indietroinfo {
+  color: white;
+  text-decoration-color: purple;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.section {
+  width: 25%;
+  margin-bottom: 20px;
+  border: 2px solid yellow; /* Bordo colorato */
+  border-radius: 15px; /* Angoli arrotondati */
+  padding: 20px; /* Spaziatura interna */
+  background-color: rgba(0, 0, 0, 0.3); /* Sfondo opaco (nero con trasparenza) */
+  text-align: center; /* Testo centrato orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: start; /* Testo centrato verticalmente */
+  align-items: center; /* Centra gli elementi al centro */
+}
+
+#bodyindex::after {
+  content: "";
+  background: url('https://osatech.ch/wp-content/uploads/tipi-di-server.jpg');
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+  background-size: cover;   
+}
+
+#titolo {
+  color: yellow;
+  word-spacing: 25px;
+}
+
+#sottotitoli {
+  color: greenyellow;
+}
+
+body {
+  line-height: 1.8;
+}
+
+#release {
+  color: white;
+  left: 15px;
+}
+
+#immagine-logo {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#testo {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}

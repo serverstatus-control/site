@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="javascript.js" defer></script> <!-- Usa defer per garantire che lo script venga eseguito dopo il caricamento del DOM -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ROBLOX SERVER</title>
+    </head>
+   
+    <body>     
+        <label for="miaTendina">SCEGLI LO STATO:</label>
+        <select id="miaTendina" disabled>
+            <option value="STATO NON INDICATO">STATO NON INDICATO</option>
+            <option value="SERVER CHIUSI/MANUTENZIONE PROGRAMMATA">SERVER CHIUSI/MANUTENZIONE PROGRAMMATA</option>
+            <option value="SERVER CON BASSA AFFLUENZA">SERVER CON BASSA AFFLUENZA (PARZIALMENTE CHIUSI)</option>
+            <option value="SERVER CON ALTA AFFLUENZA">SERVER CON ALTA AFFLUENZA</option>
+            <option value="SERVER OPERATIVI">SERVER OPERATIVI</option>
+            <option value="SERVER CON PROBLEMI">SERVER CON PROBLEMI</option>
+            <option value="SERVER CON PROBLEMI GRAVI">SERVER CON PROBLEMI GRAVI</option>
+            <option value="SERVER IN DOWN PARZIALE">SERVER IN DOWN PARZIALE</option>
+            <option value="SERVER IN DOWN">SERVER IN DOWN</option>
+            <option value="SERVER TUTTI IN DOWN">TUTTI I SERVER SONO IN DOWN</option>
+            <option value="SERVER DISTRUTTI">SERVER DISTRUTTI</option>
+        </select>
+
+        <br>
+        <label for="passwordInput">Inserisci la password:</label>
+        <input type="password" id="passwordInput" placeholder="Password">
+        <button onclick="unlockDropdown()">Sblocca</button>
+
+        <p id="testo"></p>
+        <br>
+        <a href="index.html">TORNA INDIETRO</a>
+        
+<img src="images/google logo.png" alt="LOGO GOOGLE" id="immagine-logo">
+
+    </body>
+</html>
