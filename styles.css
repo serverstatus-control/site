@@ -3,15 +3,15 @@
 #bodyindex a:hover     {background-color: green;}
 a:hover {background-color:#ffae00;}
 
-a {font-size: 20px;}
+a {font-size: 22px;}
 
 h1 {
   font-family: "Audiowide", sans-serif;
-  font-size: 55px;
+  font-size: 60px;
   text-align: center;
 }
 h3 {
-  font-size: 35px;
+  font-size: 45px;
 }
 
 h4 {
@@ -22,7 +22,7 @@ h4 {
 }
 
 #bodyinfo {
-  background-image: url(https://img.freepik.com/free-vector/realistic-news-studio-background_23-2149982947.jpg);
+  background-image: url(images/Info.avif);
   background-size: cover; 
   background-position: center;
   background-color: rgba(0, 0, 0, 0.9);
@@ -43,7 +43,7 @@ h4 {
   font-weight: bold;
   color: #8e8e8ecb;
 }
-  
+   
 .serverChiusi {
   position: fixed;
   top: 20%;
@@ -188,7 +188,7 @@ h4 {
 
 #bodyindex::after {
   content: "";
-  background: url('https://osatech.ch/wp-content/uploads/tipi-di-server.jpg');
+  background-image: url(images/Sfondo\ index\ 0.1.50.jpg);
   opacity: 0.7;
   top: 0;
   left: 0;
@@ -213,7 +213,7 @@ body {
 }
 
 #release {
-  color: white;
+  color: yellow;
   left: 15px;
 }
 
@@ -229,11 +229,221 @@ body {
 
 #testo {
   position: fixed;
-  top: 20%;
+  top: 23%;
   left: 45%;
-  transform: translate(-43%, -43%);
-  font-size: 50px;
+  transform: translate(-45%, -45%);
+  font-size: 38px;
   font-weight: bold;
   text-align: center;
   width: 100%;
+}
+
+/* Layout Tablet e Desktop */
+@media (min-width: 768px) {
+  .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Spazio uniforme tra le colonne */
+  }
+
+  .section {
+      width: calc(45% - 1em); /* Due colonne con margini */
+      margin-bottom: 1em; /* Spazio verticale tra le righe */
+  }
+}
+
+/* Layout Mobile */
+@media (max-width: 767px) {
+  .container {
+      display: flex;
+      flex-direction: column; /* Colonne impilate */
+      padding: 1em;
+  }
+
+  .section {
+      width: 100%; /* Sezione a tutta larghezza */
+      margin-bottom: 1.5em; /* Spazio tra le sezioni */
+  }
+}
+
+/*-------------------------------------------------------------------*/
+
+/* Layout Desktop e Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 15px;
+        padding: 0.4em;
+        text-align: left;
+    }
+
+    select, input, button {
+        font-size: 0.7em;
+        margin: 0.1em 0;
+    }
+
+    #immagine-logo {
+        max-width: 50%; /* Mantieni l'immagine proporzionata */
+        height: auto;
+        margin-top: 15em;
+
+        #testo {
+          margin-top: 50px;
+        }
+    }
+}
+
+/* Layout Mobile */
+@media (max-width: 767px) {
+    body {
+        font-size: 10px;
+        padding: 0.2em;
+        text-align: left; /* Centra il contenuto */
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.1em;
+    }
+
+    select, input, button {
+        width: 50%; /* Larghezza piena per dispositivi mobili */
+        font-size: 0.7em;
+        margin: 0.1em 0;
+    }
+
+    #immagine-logo {
+      max-width: 50%; /* Mantieni l'immagine proporzionata */
+      height: auto;
+      margin-top: 15em;
+
+      #testo {
+        height: 30px;
+        margin-top: 50px;
+        font-size: 15px;
+      }
+    }
+
+    a {
+        display: block;
+        margin-top: 0.5em;
+        font-size: 1em;
+        text-align: left;
+    }
+}
+
+/* Stile del pulsante */
+#glowButton {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Sfondo chiaro */
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 
+              0 0 30px rgba(255, 0, 0, 0.5); /* Inizio dell'animazione */
+  animation: glowAnimation 5s infinite alternate; /* Applica l'animazione */
+  transition: transform 0.3s ease; /* Effetto hover fluido */
+  text-decoration: none;
+  color: black;
+}
+
+/* Link all'interno del pulsante */
+#glowButton a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+
+/* Effetto hover sul pulsante */
+#glowButton:hover {
+  transform: scale(1.1); /* Leggera espansione */
+}
+
+
+
+/* Animazione glow */
+@keyframes glowAnimation {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7),    /* Rosso */
+                0 0 30px rgba(255, 0, 0, 0.5);
+  }
+  20% {
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7),  /* Arancione */
+                0 0 30px rgba(255, 165, 0, 0.5);
+  }
+  40% {
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8),  /* Giallo */
+                0 0 30px rgba(255, 255, 0, 0.6);
+  }
+  60% {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7),    /* Verde */
+                0 0 30px rgba(0, 255, 0, 0.5);
+  }
+  80% {
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.7),    /* Blu */
+                0 0 30px rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(128, 0, 128, 0.7),  /* Viola */
+                0 0 30px rgba(128, 0, 128, 0.5);
+  }
+}
+
+/* --------------------------------------------------------------------------------- */
+
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Centra la pagina */
+  height: 90vh; /* Altezza della pagina */
+  
+}
+
+.section2 {
+  width: 20%;
+  margin-bottom: 20px;
+  border: 2px solid yellow; /* Bordo colorato */
+  border-radius: 15px; /* Angoli arrotondati */
+  padding: 20px; /* Spaziatura interna */
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (nero con trasparenza) */
+  text-align: center; /* Testo centrato orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Testo centrato verticalmente */
+}
+
+#copyright {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: -5px;
+  font-size: 20px;
+
+}
+
+/*pagina legenda------------------------------------------------------*/
+
+#bodylegenda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Cambia il colore dello sfondo se necessario */
+}
+
+.center-content {
+  text-align: left; /* Allinea il testo al centro */
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem; /* Regola la dimensione del testo */
+  line-height: 1.8;
+  max-width: 100%; /* Limita la larghezza del contenuto */
 }
