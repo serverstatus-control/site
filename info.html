@@ -33,39 +33,40 @@
     <div class="popup">
         <button onclick="togglePopup()" class="popup-button">?</button>
         <span class="popuptext" id="myPopup">Se avete problemi con qualche app o sito, in questo sito potrete controllare se effettivamente ci sono dei problemi.</span>
+        </div>
     </div>
-</div>
 
-<style>
-    .popup {
+    <style>
+        .popup {
         position: fixed;
         bottom: 20px;
         left: 20px;
         display: inline-block;
         cursor: pointer;
-        z-index: 9999; /* Assicurati che la finestra pop-up sia sopra gli altri contenuti */
-    }
+        z-index: 9999;
+        }
 
-    .popup .popuptext {
+        .popup .popuptext {
         visibility: hidden;
-        width: 1200px; /* Aumentato per una visibilità migliore */
+        width: 500px; /* Increased from 350px */
         background-color: #555555;
         color: #fbff00;
         text-align: center;
         border-radius: 6px;
-        padding: 2px 4px; /* Maggiore spaziatura */
+        padding: 15px 20px; /* Increased padding */
         position: absolute;
         z-index: 1;
-        bottom: 125%; 
-        left: 50%;
-        text-align: center;
-        align-items: center;
+        bottom: 100%;
+        left: 880%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        box-sizing: border-box;
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Aggiunta ombra per visibilità */
-    }
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
 
-    .popup .popuptext::after {
+        .popup .popuptext::after {
         content: "";
         position: absolute;
         top: 100%;
@@ -74,27 +75,42 @@
         border-width: 5px;
         border-style: solid;
         border-color: #555 transparent transparent transparent;
-    }
+        }
 
-    .popup .show {
+        .popup .show {
         visibility: visible;
         opacity: 1;
-    }
+        }
 
-    .popup-button {
+        .popup-button {
         background-color: #f1f1f1;
         border: none;
         border-radius: 50%;
-        padding: 15px; /* Aumentato per un bottone più grande */
+        padding: 15px;
         font-size: 24px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-    }
+        }
 
-    .popup-button:hover {
-        background-color: #ddd; /* Colore al passaggio del mouse */
-    }
-</style>
+        .popup-button:hover {
+        background-color: #ddd;
+        }
+
+        @media (max-width: 600px) {
+        html, body {
+            font-size: 22px;
+        }
+        .popup .popuptext {
+            width: 90vw;
+            font-size: 0.95rem;
+            padding: 8px 6px;
+        }
+        .popup-button {
+            padding: 10px;
+            font-size: 18px;
+        }
+        }
+    </style>
 
 <script>
     function togglePopup() {
