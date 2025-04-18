@@ -30,7 +30,7 @@ h4 {
 
 #paginainfo {
   position: fixed;
-  bottom: 0;
+  bottom: 5px;
   right: 15px;
 }
 
@@ -222,6 +222,8 @@ body {
 #release {
   color: yellow;
   left: 15px;
+  bottom: -10px;
+  position: fixed;
 }
 
 #immagine-logo {
