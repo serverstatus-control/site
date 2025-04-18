@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const firebaseConfig = {
-        apiKey: "API_KEY_HERE",
+        apiKey: "AIzaSyDFE688w76tP-UchMERWCWaC5AFj-1N-iw",
         authDomain: "serverstatus-48c33.firebaseapp.com",
         databaseURL: "https://serverstatus-48c33-default-rtdb.firebaseio.com/",
         projectId: "serverstatus-48c33",
