@@ -1,17 +1,40 @@
+/* Reset e stili di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.8;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Stili originali */
 #bodyindex a:link      {color: white}
 #bodyindex a:visited   {color: rgb(255, 255, 255);}
 #bodyindex a:hover     {background-color: rgb(0, 113, 128);}
 a:hover {background-color:#00bfff;}
 
-a {font-size: 22px;}
+a {font-size: 22px; color: blue;}
 
 h1 {
   font-family: "Audiowide", sans-serif;
-  font-size: 60px;
+  font-size: 80px;
   text-align: center;
+  color: yellow; /* Colore acceso */
+  text-shadow: 4px 4px 10px rgba(255, 215, 0, 0.8), 
+               0 0 20px rgba(255, 255, 0, 0.9);
+  margin-top: 100px; /* Sposta leggermente il titolo sotto la navbar */
+  position: relative; /* Assicura che non si sovrapponga */
+  z-index: 10; /* Mantiene il titolo sopra altri elementi */
 }
+
 h3 {
-  font-size: 45px;
+  font-size: 60px;
+  font-family: 'Blinker';
+  text-shadow: 4px 4px 10px rgba(11, 235, 190, 0.8), 
+                0 0 20px rgba(11, 235, 190, 0.9);
 }
 
 h4 {
@@ -28,12 +51,7 @@ h4 {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-#paginainfo {
-  position: fixed;
-  bottom: 5px;
-  right: 15px;
-}
-
+/* Stati server */
 .statoNonIndicato {
   position: fixed; 
   top: 20%;
@@ -43,7 +61,7 @@ h4 {
   font-weight: bold;
   color: #8e8e8ecb;
 }
-   
+
 .serverChiusi {
   position: fixed;
   top: 20%;
@@ -53,6 +71,7 @@ h4 {
   font-weight: bold;
   color: #9c4900cb;
 }
+
 .serverBassaAffluenza {
   position: fixed;
   top: 20%;
@@ -62,6 +81,7 @@ h4 {
   font-weight: bold;
   color: #0020f3f3;
 }
+
 .serverAltaAffluenza {
   position: fixed;
   top: 20%;
@@ -71,6 +91,7 @@ h4 {
   font-weight: bold;
   color: #ffae00;
 }
+
 .serverOperativi {
   position: fixed;
   top: 20%;
@@ -80,6 +101,27 @@ h4 {
   font-weight: bold;
   color: #01fc0acb;
 }
+
+.serverGradualeRipresa {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #acfc01cb;
+}
+
+.serverPossibiliProblemi {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #acfc01cb;
+}
+
 .serverProblemi {
   position: fixed;
   top: 20%;
@@ -89,6 +131,7 @@ h4 {
   font-weight: bold;
   color: #fcef01;
 }
+
 .serverProblemiGravi {
   position: fixed;
   top: 20%;
@@ -98,6 +141,7 @@ h4 {
   font-weight: bold;
   color: #fc7a01;
 }
+
 .serverDownParziale {
   position: fixed;
   top: 20%;
@@ -107,6 +151,7 @@ h4 {
   font-weight: bold;
   color: #fc7a01;
 }
+
 .serverDown {
   position: fixed;
   top: 20%;
@@ -116,6 +161,7 @@ h4 {
   font-weight: bold;
   color: #fc0101;
 }
+
 .serverTuttiDown {
   position: fixed;
   top: 20%;
@@ -125,6 +171,17 @@ h4 {
   font-weight: bold;
   color: #c00d0d;
 }
+
+.serverSottoAttacco {
+  position: fixed;
+  top: 20%;
+  left: 45%;
+  transform: translate(-43%, -43%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #c00d0d;
+}
+
 .serverDistrutti {
   position: fixed;
   top: 20%;
@@ -135,6 +192,7 @@ h4 {
   color: #000000;
 }
 
+/* Pagina info */
 #oizzo, #mailcontatti {
   color: white;
   font-size: 70px;
@@ -166,34 +224,59 @@ h4 {
   font-size: 40px;
 }
 
+/* Container e sezioni */
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 40px; /* Aumentato padding top per evitare sovrapposizioni con la navbar */
+  gap: 4px; /* Piccolo spazio tra i container */
 }
 
 .section {
-  width: 25%;
+  width: calc(25% - 4px);
   margin-bottom: 20px;
   border-radius: 15px; /* Angoli arrotondati */
   padding: 20px; /* Spaziatura interna */
-  background-color: rgba(0, 0, 0, 0.3); /* Sfondo opaco (nero con trasparenza) */
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo opaco */
   text-align: center; /* Testo centrato orizzontalmente */
   display: flex;
   flex-direction: column;
   justify-content: start; /* Testo centrato verticalmente */
-  align-items: center; /* Centra gli elementi al centro */
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 
-              0 0 30px rgba(255, 0, 0, 0.5); /* Inizio dell'animazione */
-  animation: glowAnimation 5s infinite alternate; /* Applica l'animazione */
-  
-  border: 4px solid transparent; /* Bordo iniziale trasparente */
+  align-items: center;
+  box-shadow: 0 0 20px rgba(64, 64, 64, 1.0), 
+              0 0 40px rgba(64, 64, 64, 0.8); /* Ombra iniziale */
+  animation: smokeEffect 4s infinite alternate; /* Applica l'animazione */
   background-clip: padding-box; /* Impedisce che il colore del bordo influenzi il contenuto */
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(64, 64, 64, 1.0), 
+              0 0 60px rgba(64, 64, 64, 0.8);
+}
+
+@keyframes smokeEffect {
+  0% {
+    box-shadow: 0 0 20px rgba(64, 64, 64, 1.0),    /* Grigio scuro */
+                0 0 40px rgba(64, 64, 64, 1.0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(96, 96, 96, 0.9),  /* Grigio medio-scuro */
+                0 0 50px rgba(96, 96, 96, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(128, 128, 128, 0.8),  /* Grigio medio */
+                0 0 60px rgba(128, 128, 128, 0.8);
+  }
 }
 
 #bodyindex::after {
   content: "";
-  background-image: url(images/sfondo_index.jpg);
+  background-image: url(images/server_status_2.50.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -212,18 +295,12 @@ h4 {
 }
 
 #sottotitoli {
-  color: rgb(47, 255, 255);
-}
-
-body {
-  line-height: 1.8;
-}
-
-#release {
-  color: yellow;
-  left: 15px;
-  bottom: -10px;
-  position: fixed;
+  color: rgb(11, 235, 190);
+  font-size: 2em; /* Rendi dimensione relativa */
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(11, 235, 190, 0.5);
+  width: 100%;
 }
 
 #immagine-logo {
@@ -247,133 +324,37 @@ body {
   width: 100%;
 }
 
-/* Layout Tablet e Desktop */
-@media (min-width: 768px) {
-  .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between; /* Spazio uniforme tra le colonne */
-  }
-
-  .section {
-      width: calc(45% - 1em); /* Due colonne con margini */
-      margin-bottom: 1em; /* Spazio verticale tra le righe */
-  }
-}
-
-/* Layout Mobile */
-@media (max-width: 767px) {
-  .container {
-      display: flex;
-      flex-direction: column; /* Colonne impilate */
-      padding: 1em;
-  }
-
-  .section {
-      width: 100%; /* Sezione a tutta larghezza */
-      margin-bottom: 1.5em; /* Spazio tra le sezioni */
-  }
-}
-
-/*-------------------------------------------------------------------*/
-
-/* Layout Desktop e Tablet */
-@media (min-width: 768px) {
-    body {
-        font-size: 15px;
-        padding: 0.4em;
-        text-align: left;
-    }
-
-    select, input, button {
-        font-size: 0.7em;
-        margin: 0.1em 0;
-    }
-
-    #immagine-logo {
-        max-width: 50%; /* Mantieni l'immagine proporzionata */
-        height: auto;
-        margin-top: 15em;
-
-        #testo {
-          margin-top: 50px;
-        }
-    }
-}
-
-/* Layout Mobile */
-@media (max-width: 767px) {
-    body {
-        font-size: 10px;
-        padding: 0.2em;
-        text-align: left; /* Centra il contenuto */
-    }
-
-    label {
-        display: block;
-        margin-bottom: 0.1em;
-    }
-
-    select, input, button {
-        width: 50%; /* Larghezza piena per dispositivi mobili */
-        font-size: 0.7em;
-        margin: 0.1em 0;
-    }
-
-    #immagine-logo {
-      max-width: 50%; /* Mantieni l'immagine proporzionata */
-      height: auto;
-      margin-top: 15em;
-
-      #testo {
-        height: 30px;
-        margin-top: 50px;
-        font-size: 15px;
-      }
-    }
-
-    a {
-        display: block;
-        margin-top: 0.5em;
-        font-size: 1em;
-        text-align: left;
-    }
-}
-
-/* Stile del pulsante */
+/* Pulsante Legenda Server con effetto RGB */
 #glowButton {
   position: fixed;
   top: 10px;
   right: 10px;
-  padding: 1em 2em;
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Sfondo chiaro */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 
-              0 0 30px rgba(255, 0, 0, 0.5); /* Inizio dell'animazione */
-  animation: glowAnimation 5s infinite alternate; /* Applica l'animazione */
-  transition: transform 0.3s ease; /* Effetto hover fluido */
+              0 0 30px rgba(255, 0, 0, 0.5);
+  animation: glowAnimation 5s infinite alternate;
+  transition: transform 0.3s ease;
   text-decoration: none;
-  color: black;
+  z-index: 1100;
 }
 
-/* Link all'interno del pulsante */
 #glowButton a {
   font-weight: bold;
-  color: black;
+  color: #333;
   text-decoration: none;
 }
 
-
-/* Effetto hover sul pulsante */
 #glowButton:hover {
-  transform: scale(1.1); /* Leggera espansione */
+  transform: scale(1.1);
 }
 
-
-
-/* Animazione glow */
 @keyframes glowAnimation {
   0% {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.7),    /* Rosso */
@@ -401,15 +382,12 @@ body {
   }
 }
 
-/* --------------------------------------------------------------------------------- */
-
 .container2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center; /* Centra la pagina */
   height: 90vh; /* Altezza della pagina */
-  
 }
 
 .section2 {
@@ -418,7 +396,7 @@ body {
   border: 2px solid yellow; /* Bordo colorato */
   border-radius: 15px; /* Angoli arrotondati */
   padding: 20px; /* Spaziatura interna */
-  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (nero con trasparenza) */
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (bianco con trasparenza) */
   text-align: center; /* Testo centrato orizzontalmente */
   display: flex;
   flex-direction: column;
@@ -433,11 +411,9 @@ body {
   text-align: center;
   margin-bottom: -5px;
   font-size: 20px;
-
 }
 
-/*----------------------------- Pagina legenda -----------------------------*/
-
+/* Pagina legenda */
 #bodylegenda {
   display: flex;
   justify-content: center;
@@ -445,51 +421,887 @@ body {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #fff; /* Cambia il colore dello sfondo se necessario */
+  background-color: #fff;
 }
 
 .center-content {
-  text-align: left; /* Allinea il testo al centro */
+  text-align: left;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem; /* Regola la dimensione del testo */
+  font-size: 1.6rem;
   line-height: 1.8;
-  max-width: 100%; /* Limita la larghezza del contenuto */
+  max-width: 100%;
 }
 
-/* Pulsante successivo e precedente */
-#nextPageButton, #previousPageButton {
+/* Navbar migliorata */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1050;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+  font-family: 'Audiowide', cursive;
+  color: #00bfff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  color: #66d9ff;
+  background-color: transparent;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: #00bfff;
+}
+
+.menu-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.menu-links a:hover {
+  color: #00bfff;
+  background-color: rgba(0, 191, 255, 0.1);
+}
+
+.auth-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.auth-icon svg {
+  stroke: white;
+  transition: stroke 0.3s ease;
+}
+
+.auth-icon:hover {
+  background-color: rgba(0, 191, 255, 0.1);
+}
+
+.auth-icon:hover svg {
+  stroke: #00bfff;
+}
+
+/* Auth Popup migliorato */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  padding: 10px;
+}
+
+.popup-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn {
   position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #f5f5f5;
+}
+
+.close-btn svg {
+  transition: stroke 0.3s ease;
+}
+
+.close-btn:hover svg {
+  stroke: #007BFF;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.auth-form input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.auth-form button {
+  padding: 14px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.auth-form button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.auth-form button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.toggle-link a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+  background-color: transparent;
+  color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animazioni */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007BFF;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Media queries migliorate */
+/* Extra small - Telefoni (<576px) */
+@media (max-width: 575.98px) {
+  h1, #titolo {
+    font-size: 35px;
+    margin-top: 80px;
+    word-spacing: 5px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Centra la pagina */
+  height: 90vh; /* Altezza della pagina */
+}
+
+.section2 {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 2px solid yellow; /* Bordo colorato */
+  border-radius: 15px; /* Angoli arrotondati */
+  padding: 20px; /* Spaziatura interna */
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (bianco con trasparenza) */
+  text-align: center; /* Testo centrato orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Testo centrato verticalmente */
+}
+
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    margin-right: -120px;
+    padding: 5px;
+  }
+
+  .menu-links {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    flex-direction: column;
+    display: none;
+    align-items: center;
+    gap: 5px;
+    z-index: 2000;
+  }
+
+  .menu-links.active {
+    display: flex;
+  }
+
+  .menu-links a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 25px 15px;
+  }
+
+  #previousPageButton, #nextPageButton {
+    width: 36px;
+    height: 36px;
+    top: 30%;
+  }
+
+  #previousPageButton svg, #nextPageButton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  #previousPageButton {
+    left: 8px;
+  }
+
+  #nextPageButton {
+    right: 8px;
+  }
+
+  #glowButton {
+    padding: 8px 12px;
+    font-size: 12px;
+    top: 5px;
+    right: 5px;
+  }
+
+  a[style*="position: absolute; bottom: 10px; right: 10px"],
+  a[style*="position: absolute; bottom: 10px; left: 10px"] {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    bottom: 5px;
+  }
+
+  #immagine-logo {
+    width: 80%;
+    max-width: 300px;
+    margin: 15px auto 30px;
+    display: block;
+  }
+
+  .statoNonIndicato, .serverChiusi, .serverBassaAffluenza, .serverAltaAffluenza,
+  .serverOperativi, .serverGradualeRipresa, .serverPossibiliProblemi, .serverProblemi,
+  .serverProblemiGravi, .serverDownParziale, .serverDown, .serverTuttiDown,
+  .serverSottoAttacco, .serverDistrutti {
+    font-size: 24px;
+    width: 90%;
+    text-align: center;
+    left: 50%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+  }
+
+  #testo {
+    font-size: 22px;
+    top: 30%; /* Spostato più in basso per evitare sovrapposizioni */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  .container-pagine {
+    padding: 10px;
+    text-align: left;
+  }
+
+  input, select, button {
+    max-width: 90%;
+    margin: 3px 0; /* Ridotto il margine verticale */
+  }
+
+  label {
+    display: block;
+    margin: 3px 0; /* Ridotto il margine verticale */
+    text-align: left;
+  }
+}
+
+/* Small - Tablet verticale (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  h1, #titolo {
+    font-size: 50px;
+    margin-top: 90px;
+  }
+
+  .section {
+    width: 45%;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  a {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+   .container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Centra la pagina */
+  height: 90vh; /* Altezza della pagina */
+}
+
+.section2 {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 2px solid yellow; /* Bordo colorato */
+  border-radius: 15px; /* Angoli arrotondati */
+  padding: 20px; /* Spaziatura interna */
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (bianco con trasparenza) */
+  text-align: center; /* Testo centrato orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Testo centrato verticalmente */
+}
+
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    flex-direction: column;
+    display: none;
+  }
+
+  .menu-links.active {
+    display: flex;
+  }
+
+  #previousPageButton, #nextPageButton {
+    width: 45px;
+    height: 45px;
+  }
+
+  #previousPageButton svg, #nextPageButton svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  a[style*="position: absolute; bottom: 10px; right: 10px"],
+  a[style*="position: absolute; bottom: 10px; left: 10px"] {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  #immagine-logo {
+    width: 80%;
+    margin-top: 40px;
+  }
+
+  .statoNonIndicato, .serverChiusi, .serverBassaAffluenza, .serverAltaAffluenza,
+  .serverOperativi, .serverGradualeRipresa, .serverPossibiliProblemi, .serverProblemi,
+  .serverProblemiGravi, .serverDownParziale, .serverDown, .serverTuttiDown,
+  .serverSottoAttacco, .serverDistrutti {
+    font-size: 40px;
+    width: 90%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #testo {
+    font-size: 32px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Medium - Tablet orizzontale (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  h1, #titolo {
+    font-size: 60px;
+  }
+
+  .section {
+    width: 30%;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  #previousPageButton, #nextPageButton {
+    width: 50px;
+    height: 50px;
+  }
+
+   .container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Centra la pagina */
+  height: 90vh; /* Altezza della pagina */
+}
+
+.section2 {
+  width: 50%;
+  margin-bottom: 20px;
+  border: 2px solid yellow; /* Bordo colorato */
+  border-radius: 15px; /* Angoli arrotondati */
+  padding: 20px; /* Spaziatura interna */
+  background-color: rgba(255, 255, 255, 0.7); /* Sfondo opaco (bianco con trasparenza) */
+  text-align: center; /* Testo centrato orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Testo centrato verticalmente */
+}
+
+  #previousPageButton svg, #nextPageButton svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  a[style*="position: absolute; bottom: 10px; right: 10px"],
+  a[style*="position: absolute; bottom: 10px; left: 10px"] {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  #immagine-logo {
+    width: 70%;
+  }
+
+  .statoNonIndicato, .serverChiusi, .serverBassaAffluenza, .serverAltaAffluenza,
+  .serverOperativi, .serverGradualeRipresa, .serverPossibiliProblemi, .serverProblemi,
+  .serverProblemiGravi, .serverDownParziale, .serverDown, .serverTuttiDown,
+  .serverSottoAttacco, .serverDistrutti {
+    font-size: 45px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  #testo {
+    font-size: 34px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Large - Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .section {
+    width: 30%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  #immagine-logo {
+    width: 60%;
+  }
+
+  .statoNonIndicato, .serverChiusi, .serverBassaAffluenza, .serverAltaAffluenza,
+  .serverOperativi, .serverGradualeRipresa, .serverPossibiliProblemi, .serverProblemi,
+  .serverProblemiGravi, .serverDownParziale, .serverDown, .serverTuttiDown,
+  .serverSottoAttacco, .serverDistrutti {
+    font-size: 48px;
+  }
+}
+
+/* Extra Large - Large desktop (1200px+) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .section {
+    width: 24%;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+
+/* Stili per le freccine di navigazione */
+#previousPageButton, #nextPageButton {
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border: none;
-  color: #4CAF50; /* Colore verde per le frecce */
-  font-size: 48px; /* Aumenta la dimensione delle icone */
-  cursor: pointer;
-  transition: color 0.3s ease;
+  outline: none;
+  padding: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
   text-decoration: none;
 }
 
-#nextPageButton svg, #previousPageButton svg {
-  width: 48px; /* Aumenta la dimensione dell'icona */
-  height: 48px; /* Aumenta la dimensione dell'icona */
-  transition: transform 0.3s ease;
+#previousPageButton:hover, #nextPageButton:hover {
+  transform: translateY(-50%) scale(1.2);
 }
 
-#nextPageButton:hover svg, #previousPageButton:hover svg {
-  transform: translateX(5px); /* L'icona si sposterà verso destra quando il mouse è sopra */
+#previousPageButton:active, #nextPageButton:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
+#previousPageButton svg, #nextPageButton svg {
+  width: 30px;
+  height: 30px;
+  stroke: #4a90e2;
+  stroke-width: 3;
+  transition: stroke 0.3s ease;
+}
 
-/* Centra i pulsanti a sinistra e a destra */
-#nextPageButton {
-  right: 10px; /* Posiziona il pulsante a destra */
+#previousPageButton:hover svg, #nextPageButton:hover svg {
+  stroke: #2c78d4;
 }
 
 #previousPageButton {
-  left: 10px; /* Posiziona il pulsante a sinistra */
+  left: 10px;
+}
+
+#nextPageButton {
+  right: 11px;
+}
+
+/* Stili per link negli angoli con miglioramenti */
+a[style*="position: absolute; bottom: 10px; right: 10px"],
+a[style*="position: absolute; bottom: 10px; left: 10px"] {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #4a90e2;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #4a90e2;
+  position: fixed;
+  z-index: 1000;
+  bottom: 10px;
+}
+
+a[style*="position: absolute; bottom: 10px; right: 10px"]:hover,
+
+/* Posizionamento immagine */
+#immagine-logo {
+  display: block;
+  width: 50%;
+  max-width: 700px;
+  height: auto;
+  margin: 30px auto;
+}
+
+@media (max-width: 992px) {
+  #immagine-logo {
+    width: 70%;
+    margin: 25px auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #immagine-logo {
+    width: 75%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 575px) {
+  #immagine-logo {
+    width: 80%;
+    max-width: 300px;
+    margin: 15px auto 30px;
+  }
+
+  .container-pagine {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 5px; /* Spazio uniforme tra gli elementi */
+  }
+
+  select, input, button {
+    width: 90%;
+    max-width: 300px;
+    margin: 2px 0; /* Ridotto il margine verticale */
+  }
+}
+
+a[style*="position: absolute; bottom: 10px; left: 10px"]:hover {
+  background-color: #4a90e2;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Container per le pagine */
+.container-pagine {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 10px 10px; /* Ridotto padding */
+  position: relative;
+}
+/* Area selezione stato - desktop */
+.container-pagine > label:first-of-type {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.container-pagine > select {
+  position: absolute;
+  top: 6px;
+  left: 140px;
+  font-size: 12px;
+  padding: 4px;
+  width: 180px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+}
+
+/* Campo password */
+.container-pagine > label[for="passwordInput"] {
+  position: absolute;
+  top: 45px;
+  left: 10px;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.container-pagine > input[type="password"] {
+  position: absolute;
+  top: 41px;
+  left: 140px;
+  font-size: 12px;
+  padding: 3px;
+  width: 140px;
+  border-radius: 4px;
+}
+
+/* Bottone sblocca affiancato */
+.container-pagine > button#unlockButton {
+  position: absolute;
+  top: 40px;
+  left: 282px;
+  font-size: 11px;
+  padding: 6px 7px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.container-pagine > button#unlockButton:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile: imposta tutto in colonna */
+@media (max-width: 575px) {
+  .container-pagine > label:first-of-type {
+    color: transparent; /* Nascondi l'etichetta */  
+  }
+
+  .container-pagine > select {
+    top: 5px;
+    left: 10px;
+    width: 90%;
+  }
+
+  .container-pagine > label[for="passwordInput"] {
+    color: transparent; /* Nascondi l'etichetta */  
+  }
+
+  .container-pagine > input[type="password"] {
+    top: 35px;
+    left: 10px;
+    width: 55%;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  .container-pagine > button#unlockButton {
+    top: 60px;
+    left: 3%;
+    font-size: 12px;
+    padding: 3px;/* Solo padding verticale */
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 3;
+  }
+}
+
+/* Stile per i form */
+label {
+  display: block;
+  color: white;
+  font-size: 16px;
+}
+
+select, input, button#unlockButton {
+  font-size: 14px;
+  padding: 6px;
+}
+
+@media (max-width: 767px) {
+  .container-pagine > label:first-of-type,
+  .container-pagine > select,
+  .container-pagine > label[for="passwordInput"],
+  .container-pagine > input[type="password"],
+  .container-pagine > button#unlockButton {
+    width: 200px;
+  }
 }
